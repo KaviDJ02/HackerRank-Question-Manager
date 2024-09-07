@@ -81,20 +81,38 @@ public class HackerRankController {
         String solvedStatus = solvedStatusChoice.getValue();
         String solvedBy = user;
 
-        if (title != null && difficulty != null && subdomainText != null && solvedStatus != null) {
-            Question question = new Question(title, difficulty, subdomainText, solvedStatus,dateTimeNow.getCurrentDateTime(), solvedBy);
-
-            // Save the question to the database
-            DatabaseQuery.addQuestion(question);
-            msgLabel.setText("Question added!");
-
-            // Refresh the ListView for solved questions
-            loadSolvedQuestions();
-
-            clearForm();
-        } else {
-            msgLabel.setText("Empty fields!");
+        if (title == null || title.trim().isEmpty() ||
+                difficulty == null || difficulty.trim().isEmpty() ||
+                subdomainText == null || subdomainText.trim().isEmpty() ||
+                solvedStatus == null || solvedStatus.trim().isEmpty()) {
+            msgLabel.setText("Fields cannot be empty!");
+            return;
         }
+
+        if (checkDuplicate(title)) {
+            msgLabel.setText("Question already exists!");
+            return;
+        }
+
+        Question question = new Question(title, difficulty, subdomainText, solvedStatus, dateTimeNow.getCurrentDateTime(), solvedBy);
+
+        // Save the question to the database
+        DatabaseQuery.addQuestion(question);
+        msgLabel.setText("Question added successfully!");
+
+        // Refresh the ListView for solved questions
+        loadSolvedQuestions();
+
+        clearForm();
+    }
+
+    private boolean checkDuplicate(String title) {
+        for (Question question : databaseQuery.getQuestions()) {
+            if (title.equals(question.getTitle())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Handle updating a question (logic will depend on how you're fetching and managing questions)
