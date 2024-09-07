@@ -1,0 +1,104 @@
+/* Base background for the whole app */
+.root {
+    -fx-background-color: #1f1f1f;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+/* Style for the header label */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00EA64; /* HackerRank Green */
+    -fx-padding-bottom: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 8, 0, 2, 2); /* Subtle shadow effect */
+}
+
+/* Style for subheader labels */
+.subheader-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding-top: 10px;
+    -fx-padding-bottom: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 4, 0, 1, 1);
+}
+
+/* Styling for TextFields, PasswordFields, and ChoiceBoxes */
+TextField, PasswordField, ChoiceBox {
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-border-color: #424242;
+    -fx-border-radius: 8px; /* Rounded corners */
+    -fx-background-radius: 8px;
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 4, 0, 1, 1); /* Small shadow */
+}
+
+TextField:focused, PasswordField:focused, ChoiceBox:focused {
+    -fx-border-color: #00EA64; /* Highlight border on focus */
+    -fx-effect: dropshadow(gaussian, rgba(0, 234, 100, 0.8), 8, 0, 2, 2); /* Glow effect on focus */
+}
+
+/* Button Styling */
+Button {
+    -fx-background-color: #00EA64;
+    -fx-text-fill: #1f1f1f;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 6, 0, 2, 2); /* Shadow effect */
+    -fx-cursor: hand; /* Change cursor to pointer */
+    -fx-border-color: transparent;
+}
+
+Button:hover {
+    -fx-background-color: #00C955; /* Slightly darker green on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 234, 100, 0.8), 8, 0, 2, 2); /* Stronger glow on hover */
+}
+
+/* Styling the ListView */
+ListView {
+    -fx-border-color: #424242;
+    -fx-border-radius: 8px;
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 4, 0, 1, 1);
+}
+
+/* Login Button Styling */
+.login-button {
+    -fx-background-color: #00EA64;
+    -fx-text-fill: #1f1f1f;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 6, 0, 2, 2);
+}
+
+.login-button:hover {
+    -fx-background-color: #00C955;
+    -fx-effect: dropshadow(gaussian, rgba(0, 234, 100, 0.8), 8, 0, 2, 2); /* Glow on hover */
+}
+
+/* Error Label for login status */
+.error-label {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+    -fx-padding-top: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 0, 0, 0.8), 4, 0, 1, 1); /* Red shadow for errors */
+}
+
+/* Modify Label Colors for forms */
+Label {
+    -fx-text-fill: #FFFFFF; /* White text for labels */
+    -fx-font-size: 14px;
+    -fx-padding-right: 10px;
+}
+
+/* Styling for input boxes and layout */
+HBox, VBox {
+    -fx-spacing: 15px; /* Add spacing between form fields */
+    -fx-padding: 10px 20px;
+}
+
